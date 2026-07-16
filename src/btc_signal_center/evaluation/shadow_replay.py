@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
 from dataclasses import dataclass
 
 from btc_signal_center.domain.models import (
@@ -116,7 +115,3 @@ def _assess_gates(
         decision_quality=decision_quality,
         reasons=tuple(reasons),
     )
-
-
-def as_tuple(values: Iterable[object] | None) -> tuple[object, ...]:
-    return tuple(values or ())
