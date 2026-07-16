@@ -3,7 +3,6 @@ from __future__ import annotations
 import time
 from collections.abc import Callable, Mapping
 from datetime import UTC, datetime
-from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
