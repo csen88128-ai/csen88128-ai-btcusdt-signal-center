@@ -77,7 +77,10 @@ def _parse_inputs(payload: dict[str, Any]) -> ReplayInputs:
 
 
 def _timed_values(items: list[dict[str, Any]]) -> tuple[TimedValue, ...]:
-    return tuple(TimedValue(timestamp=_dt(item["timestamp"]), value=float(item["value"])) for item in items)
+    return tuple(
+        TimedValue(timestamp=_dt(item["timestamp"]), value=float(item["value"]))
+        for item in items
+    )
 
 
 def _dt(value: str) -> datetime:
