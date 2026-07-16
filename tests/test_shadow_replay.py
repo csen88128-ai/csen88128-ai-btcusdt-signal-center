@@ -1,9 +1,14 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
-from btc_signal_center.domain.models import BarrierOutcome, BarrierSpec, Candle, FlowBucket, TimedValue
+from btc_signal_center.domain.models import (
+    BarrierOutcome,
+    BarrierSpec,
+    Candle,
+    FlowBucket,
+    TimedValue,
+)
 from btc_signal_center.evaluation.shadow_replay import ReplayInputs, replay_shadow_event
 
-UTC = timezone.utc
 START = datetime(2026, 7, 16, 3, 14, 8, tzinfo=UTC)
 
 
