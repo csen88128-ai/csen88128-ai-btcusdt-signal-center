@@ -1,0 +1,146 @@
+{
+  "record_type": "BTCUSDT_SHADOW_REPLAY_SUMMARY",
+  "record_version": "shadow_v0.2",
+  "status": "FINALIZED_PRICE_ONLY",
+  "symbol": "BTCUSDT",
+  "market": "BINANCE_USDS_M_PERPETUAL",
+  "timezone": "Asia/Singapore",
+  "as_of": "2026-07-16T03:14:08+08:00",
+  "reference_price": 64898.77128261,
+  "original_action": "OBSERVE",
+  "original_weights_are_calibrated": false,
+  "price_source": {
+    "provider": "Binance",
+    "dataset": "USDⓈ-M Futures mark-price klines",
+    "interval": "1m",
+    "query_start_time_ms": 1784142848000,
+    "query_end_time_ms": 1784171648000,
+    "closed_candles_only": true,
+    "partial_first_candle_excluded": true,
+    "partial_final_candle_excluded": true,
+    "source_payload_committed": false,
+    "raw_collector_required": true
+  },
+  "frozen_horizons": [
+    {
+      "horizon": "30m",
+      "expires_at": "2026-07-16T03:44:08+08:00",
+      "upper_barrier": 65190.8158,
+      "lower_barrier": 64606.7268,
+      "original_scenario_weights": {
+        "UP_FIRST": 0.25,
+        "DOWN_FIRST": 0.42,
+        "TIMEOUT": 0.33
+      },
+      "result": {
+        "primary_label": "TIMEOUT",
+        "path_label": "TIMEOUT_UP_BIAS",
+        "barrier_touch": {
+          "up": false,
+          "down": false,
+          "ambiguous_same_bar": false
+        },
+        "safe_candle_count": 29,
+        "nominal_price_coverage_ratio": 0.9666666667,
+        "first_safe_candle_open": "2026-07-16T03:15:00+08:00",
+        "final_safe_candle_close": "2026-07-16T03:43:59.999+08:00",
+        "cutoff_price": 64954.34892754,
+        "close_return_pct": 0.0008563743786146588,
+        "high_price": 64958.1,
+        "high_time": "2026-07-16T03:43:00+08:00",
+        "low_price": 64715.85447101,
+        "low_time": "2026-07-16T03:20:00+08:00",
+        "long_mfe_pct": 0.000914173199545574,
+        "long_mae_pct": -0.0028184942177636207,
+        "short_mfe_pct": 0.0028184942177636207,
+        "short_mae_pct": -0.000914173199545574
+      }
+    },
+    {
+      "horizon": "2h",
+      "expires_at": "2026-07-16T05:14:08+08:00",
+      "upper_barrier": 65482.8602,
+      "lower_barrier": 64314.6823,
+      "original_scenario_weights": {
+        "UP_FIRST": 0.31,
+        "DOWN_FIRST": 0.36,
+        "TIMEOUT": 0.33
+      },
+      "result": {
+        "primary_label": "TIMEOUT",
+        "path_label": "TIMEOUT_MEAN_REVERT",
+        "barrier_touch": {
+          "up": false,
+          "down": false,
+          "ambiguous_same_bar": false
+        },
+        "safe_candle_count": 119,
+        "nominal_price_coverage_ratio": 0.9916666667,
+        "first_safe_candle_open": "2026-07-16T03:15:00+08:00",
+        "final_safe_candle_close": "2026-07-16T05:13:59.999+08:00",
+        "cutoff_price": 64875.11202174,
+        "close_return_pct": -0.00036455637606716347,
+        "high_price": 65029.8,
+        "high_time": "2026-07-16T04:33:00+08:00",
+        "low_price": 64715.85447101,
+        "low_time": "2026-07-16T03:20:00+08:00",
+        "long_mfe_pct": 0.002018970695445353,
+        "long_mae_pct": -0.0028184942177636207,
+        "short_mfe_pct": 0.0028184942177636207,
+        "short_mae_pct": -0.002018970695445353
+      }
+    },
+    {
+      "horizon": "8h",
+      "expires_at": "2026-07-16T11:14:08+08:00",
+      "upper_barrier": 66066.9492,
+      "lower_barrier": 63730.5934,
+      "original_scenario_weights": {
+        "UP_FIRST": 0.42,
+        "DOWN_FIRST": 0.29,
+        "TIMEOUT": 0.29
+      },
+      "result": {
+        "primary_label": "TIMEOUT",
+        "path_label": "TIMEOUT_DOWN_BIAS",
+        "barrier_touch": {
+          "up": false,
+          "down": false,
+          "ambiguous_same_bar": false
+        },
+        "safe_candle_count": 479,
+        "nominal_price_coverage_ratio": 0.9979166667,
+        "first_safe_candle_open": "2026-07-16T03:15:00+08:00",
+        "final_safe_candle_close": "2026-07-16T11:13:59.999+08:00",
+        "cutoff_price": 64684.75162319,
+        "close_return_pct": -0.003297745938640718,
+        "high_price": 65029.8,
+        "high_time": "2026-07-16T04:33:00+08:00",
+        "low_price": 64370.19913043,
+        "low_time": "2026-07-16T09:19:00+08:00",
+        "long_mfe_pct": 0.002018970695445353,
+        "long_mae_pct": -0.00814456332121089,
+        "short_mfe_pct": 0.00814456332121089,
+        "short_mae_pct": -0.002018970695445353
+      }
+    }
+  ],
+  "derivatives": {
+    "status": "PENDING_VERIFICATION",
+    "open_interest": null,
+    "funding_rate": null,
+    "taker_flow": null,
+    "top_trader_ratio": null,
+    "reason": "No unverified derivative figures are promoted into the immutable evidence record. A raw collector with exact event-window alignment is required."
+  },
+  "assessment": {
+    "decision_quality": "PASS",
+    "directional_model_quality": "INCONCLUSIVE",
+    "predictability_gate_value": "CONFIRMED",
+    "calibration_status": "NOT_READY",
+    "value_status": "NOT_READY",
+    "next_action": "CONTINUE_SHADOW_TESTING"
+  },
+  "research_only": true,
+  "trading_advice": false
+}
