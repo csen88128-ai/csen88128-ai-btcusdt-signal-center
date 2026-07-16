@@ -1,9 +1,7 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from btc_signal_center.domain.models import BarrierOutcome, BarrierSpec, Candle, PathLabel
 from btc_signal_center.labels.triple_barrier import evaluate_triple_barrier
-
-UTC = timezone.utc
 
 
 def candle(minute: int, *, high: float, low: float, close: float) -> Candle:
