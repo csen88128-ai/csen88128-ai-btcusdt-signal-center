@@ -1,0 +1,34 @@
+version: shadow_v0.2
+symbol: BTCUSDT
+mode: research_only
+allowed_actions:
+  - REJECT
+  - OBSERVE
+  - LIGHT_LONG
+  - LIGHT_SHORT
+execution_enabled: false
+online_weight_updates_enabled: false
+
+price_window:
+  candle_interval: 1m
+  closed_only: true
+  exclude_partial_first_candle: true
+  exclude_partial_final_candle: true
+  minimum_coverage_ratio: 0.90
+
+derivative_window:
+  aggregation_policy: full_buckets_only
+  report_coverage_ratio: true
+  minimum_coverage_ratio: 0.50
+
+path_labels:
+  bias_threshold_pct: 0.0025
+  compression_range_pct: 0.0025
+  mean_revert_close_pct: 0.0010
+  meaningful_excursion_pct: 0.0015
+
+hard_gates:
+  calibrated_probability_required_for_light: true
+  positive_net_ev_lower_bound_required_for_light: true
+  ambiguous_bar_action: REJECT
+  timeout_default_action: OBSERVE
