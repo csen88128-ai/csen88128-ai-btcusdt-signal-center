@@ -22,8 +22,8 @@ class BinanceCollectionSpec:
                 raise ValueError(f"{name} must be timezone-aware")
         if self.end_time <= self.start_time:
             raise ValueError("end_time must be later than start_time")
-        if not self.symbol:
-            raise ValueError("symbol is required")
+        if self.symbol != "BTCUSDT":
+            raise ValueError("shadow_v0.3 is intentionally restricted to BTCUSDT")
 
     @property
     def start_time_ms(self) -> int:
