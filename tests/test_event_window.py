@@ -1,9 +1,8 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from btc_signal_center.domain.models import FlowBucket, TimedValue
 from btc_signal_center.features.event_window import aggregate_full_flow_buckets, endpoint_change
 
-UTC = timezone.utc
 BASE = datetime(2026, 7, 16, 3, 14, 8, tzinfo=UTC)
 
 
