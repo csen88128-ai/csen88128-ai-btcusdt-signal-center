@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "btc-signal-center"
+version = "0.2.0"
+description = "BTCUSDT shadow replay, uncertainty gating and calibration evidence ledger"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "BTCUSDT Signal Center"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+btc-shadow-replay = "btc_signal_center.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
