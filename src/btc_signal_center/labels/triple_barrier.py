@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from math import isclose
 from statistics import median
-from typing import Iterable
 
 from btc_signal_center.domain.models import (
     BarrierEvaluation,
@@ -178,7 +178,7 @@ def _gap_diagnostics(candles: list[Candle]) -> list[str]:
         return []
     durations = [(item.close_time - item.open_time).total_seconds() for item in candles]
     normal_duration = median(durations)
-    for previous, current in zip(candles, candles[1:]):
+    for previous, current in zip(candles, candles[1:], strict=False):
         gap = (current.open_time - previous.close_time).total_seconds()
         if gap > max(2.0, normal_duration * 0.10):
             return ["PRICE_WINDOW_HAS_GAPS"]
