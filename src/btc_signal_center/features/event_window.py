@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from datetime import datetime
-from typing import Iterable
 
 from btc_signal_center.domain.models import FlowAggregate, FlowBucket, SeriesChange, TimedValue
 
@@ -48,8 +48,8 @@ def endpoint_change(
 
     _validate_window(start, end)
     ordered = sorted(points, key=lambda item: item.timestamp)
-    start_candidates = [item for item in ordered if item.timestamp >= start and item.timestamp <= end]
-    end_candidates = [item for item in ordered if item.timestamp <= end and item.timestamp >= start]
+    start_candidates = [item for item in ordered if start <= item.timestamp <= end]
+    end_candidates = [item for item in ordered if start <= item.timestamp <= end]
     if not start_candidates or not end_candidates:
         return SeriesChange(None, None, None, None, None, None)
 
