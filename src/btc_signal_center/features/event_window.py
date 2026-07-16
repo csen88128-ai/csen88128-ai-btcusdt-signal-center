@@ -47,14 +47,15 @@ def endpoint_change(
     """Use the first point at/after start and the last point at/before end."""
 
     _validate_window(start, end)
-    ordered = sorted(points, key=lambda item: item.timestamp)
-    start_candidates = [item for item in ordered if start <= item.timestamp <= end]
-    end_candidates = [item for item in ordered if start <= item.timestamp <= end]
-    if not start_candidates or not end_candidates:
+    inside = sorted(
+        (item for item in points if start <= item.timestamp <= end),
+        key=lambda item: item.timestamp,
+    )
+    if not inside:
         return SeriesChange(None, None, None, None, None, None)
 
-    first = start_candidates[0]
-    last = end_candidates[-1]
+    first = inside[0]
+    last = inside[-1]
     absolute = last.value - first.value
     pct = None if first.value == 0 else absolute / first.value
     return SeriesChange(
