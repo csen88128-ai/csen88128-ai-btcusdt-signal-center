@@ -21,6 +21,16 @@ The first production-shaped slice implements:
 
 This milestone does **not** produce calibrated trading probabilities. Missing calibration or value evidence must keep the action at `OBSERVE` or `REJECT`.
 
+## First verified shadow evidence
+
+The repository includes the price-verified replay summary for the BTCUSDT event frozen at `2026-07-16T03:14:08+08:00`:
+
+```text
+evidence/shadow/2026-07-16T031408+0800_BTCUSDT_summary.json
+```
+
+Its 30-minute, 2-hour and 8-hour primary labels are all `TIMEOUT`, while path sub-labels preserve the materially different trajectories. The record is deliberately marked `FINALIZED_PRICE_ONLY`: derivative figures remain `PENDING_VERIFICATION` until a raw collector can reconstruct exact event windows. Unverified values are not promoted into the evidence ledger.
+
 ## Quick start
 
 ```bash
