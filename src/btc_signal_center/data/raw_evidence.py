@@ -58,7 +58,10 @@ class RawEvidenceStore:
     def write(self, response: RawApiResponse) -> RawEvidenceManifestEntry:
         timestamp = response.received_at.astimezone(UTC).strftime("%Y%m%dT%H%M%S%fZ")
         endpoint_slug = response.endpoint.strip("/").replace("/", "_") or "root"
-        filename = f"{timestamp}_{response.provider.lower()}_{endpoint_slug}_{response.payload_sha256[:12]}.json"
+        filename = (
+            f"{timestamp}_{response.provider.lower()}_{endpoint_slug}_"
+            f"{response.payload_sha256[:12]}.json"
+        )
         payload_path = self.payload_dir / filename
 
         self._write_once(payload_path, response.payload)
