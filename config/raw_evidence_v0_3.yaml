@@ -1,0 +1,38 @@
+version: raw_evidence_v0.3
+symbol: BTCUSDT
+provider: Binance
+market: USDS_M_PERPETUAL
+mode: public_read_only
+execution_enabled: false
+
+sources:
+  mark_price_klines:
+    endpoint: /fapi/v1/markPriceKlines
+    interval: 1m
+  trade_klines:
+    endpoint: /fapi/v1/klines
+    interval: 1m
+    exact_taker_flow: true
+  open_interest:
+    endpoint: /futures/data/openInterestHist
+    period: 5m
+    alignment: timestamped_observations
+  funding:
+    endpoint: /fapi/v1/fundingRate
+    alignment: event_timestamps
+  top_trader_position_ratio:
+    endpoint: /futures/data/topLongShortPositionRatio
+    period: 5m
+    alignment: timestamped_observations
+
+storage:
+  payload_format: raw_json_bytes
+  digest: sha256
+  manifest: append_only_jsonl
+  overwrite: forbidden
+
+promotion_rules:
+  require_payload_hash: true
+  require_source_timestamps: true
+  require_window_alignment_disclosure: true
+  narrative_values_are_evidence: false
